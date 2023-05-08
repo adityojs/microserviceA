@@ -6,3 +6,9 @@ Service A (Micorservice A) to Access Service B (Microservice B)
 
 Postman: 
 localhost:8010/check
+
+Redis:
+6379
+
+Mysql:
+3306
