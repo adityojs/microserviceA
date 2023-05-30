@@ -1,0 +1,30 @@
+version: "3.1"
+
+services:
+  mysqldb:
+    image: mysql
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_USERNAME: root
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DB: account
+
+  redis:
+    image: redis:6.0.6-alpine
+    container_name: localhost
+    volumes:
+      - redis_volume_data:/data
+    ports:
+      - 6379:6379
+  redis_insight:
+    image: redislabs/redisinsight:latest
+    container_name: redis_insight
+    ports:
+      - 8010:8010
+    volumes:
+      - redis_insight_volume_data:/db
+volumes:
+ redis_volume_data:
+ redis_insight_volume_data:
